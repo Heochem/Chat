@@ -134,4 +134,3 @@ export default {
   border-bottom-left-radius: 10px;
 }
 </style>
-

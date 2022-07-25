@@ -70,12 +70,6 @@ export default {
         id: null,
       });
     });
-
-    this.socket.on("new_user_connected", (user) => {
-      if (!this.userlist.find((item) => item === this.id)) {
-        this.userlist.push(user);
-      }
-    });
   },
 
   mounted() {
@@ -89,7 +83,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 textarea {

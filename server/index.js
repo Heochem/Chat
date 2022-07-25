@@ -59,5 +59,6 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     userlist = userlist.filter((user) => user.id !== socket.id);
     io.sockets.emit("add_system_message", socket.username + " покинул чат");
+    io.sockets.emit("get_user_list", userlist);
   });
 });

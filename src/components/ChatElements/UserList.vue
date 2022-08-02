@@ -30,6 +30,6 @@ export default {
   flex-direction: column;
   padding: 10px;
   height: 80vh;
-  max-height: 600px;
+  max-height: 400px;
 }
 </style>

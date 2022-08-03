@@ -16,6 +16,7 @@
     "nodemon": "^2.0.19",
     "socket.io": "^4.5.1",
     "socket.io-client": "^4.5.1",
+    "unicode-canonical-property-names-ecmascript": "^2.0.0",
     "vue": "^2.7.8"
   },
   "devDependencies": {

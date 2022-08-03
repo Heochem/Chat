@@ -6,6 +6,7 @@
         v-model="message"
         aria-describedby="input-live-help input-live-feedback"
         trim
+        placeholder="Введите текст"
       ></b-form-input>
       <b-input-group-append>
         <b-button id="popover-target-1"> &#128512; </b-button>

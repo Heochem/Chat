@@ -6,6 +6,7 @@
         v-model="name"
         aria-describedby="input-live-help input-live-feedback"
         trim
+        placeholder="Введите ваше имя"
       ></b-form-input>
       <b-input-group-append>
         <b-button variant="success" @click="changeName">Изменить</b-button>

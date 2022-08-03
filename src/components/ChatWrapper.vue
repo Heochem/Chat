@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <MyHeader brand="Чат" :username="username" />
-    <ChangeName :username="username" @change-name="changeName" />
+    <ChangeName :username="username" @change-name="changeUserName" />
     <b-row>
       <b-col><ChatWindow :messages="messages" :id="id" /></b-col>
 
@@ -41,7 +41,7 @@ export default {
     };
   },
   methods: {
-    changeName: function (name) {
+    changeUserName: function (name) {
       this.username = name;
       this.socket.emit("change_username", { username: name });
     },
@@ -70,9 +70,7 @@ export default {
         id: null,
       });
     });
-  },
 
-  mounted() {
     this.socket.on("add_mess", (data) => {
       this.messages.push({
         name: data.username,

@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-let userlist = [];
 app.use(express.static("dist"));
 
 app.get("/", (req, res) => {
@@ -9,12 +8,14 @@ app.get("/", (req, res) => {
 
 const server = app.listen("5000", () => console.log("Server is running..."));
 
-const io = require("socket.io")(server, {
+let userlist = [];
+const devconf = {
   cors: {
     origin: "http://localhost:8080",
     methods: ["GET", "POST"],
   },
-});
+};
+const io = require("socket.io")(server, devconf);
 
 io.on("connection", (socket) => {
   socket.username = "Инкогнито";
@@ -51,9 +52,12 @@ io.on("connection", (socket) => {
       id: socket.id,
     });
 
-    // if (data.message === "привет") {
-    //     io.sockets.emit('add_mess', { message: "И тебе не хворать", username: "Бот" });
-    // }
+    if ((data.message === "Привет") & (socket.username === "Инкогнито")) {
+      io.sockets.emit("add_mess", {
+        message: "И тебе не хворать",
+        username: "Бот",
+      });
+    }
   });
 
   socket.on("disconnect", () => {
